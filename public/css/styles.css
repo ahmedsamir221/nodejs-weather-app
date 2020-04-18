@@ -1,0 +1,10 @@
+body{
+    columns: #333333;
+    font-family: Arial;
+    margin-left: 500px;
+    margin-top: 200px;
+}
+
+title{
+    color: red;
+}
