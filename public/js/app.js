@@ -7,7 +7,7 @@ const ms2 = document.querySelector('#ms2')
 weatherForm.addEventListener('submit',(e)=>{
     e.preventDefault()
     const location = searsh.value
-    const url = 'http://localhost:3000/weather?address=' + location
+    const url = '/weather?address=' + location
     ms1.textContent="loading..."
     ms2.textContent=""
     fetch(url).then((response)=>{
