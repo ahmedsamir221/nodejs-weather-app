@@ -3,12 +3,12 @@ const request = require('request')
 const geocode = (adress , callback)=>{
     const url ='https://api.mapbox.com/geocoding/v5/mapbox.places/' + adress + '.json?access_token=pk.eyJ1IjoiYWhtZWQtLXNhbWlyIiwiYSI6ImNrOHdhbnlzZjAwanUzbWxmcDFyOXQ3ZzEifQ.eMBMXj6NypsL7K1Gl5MB1w'
     request({url, json: true},(error, response)=>{
-
+        //console.log(response.body)
         if(error){
             callback('connection error',undefined)
         }
-        else if(typeof response.body === 'string'){
-            callback('locatin not found',undefined)
+        else if(typeof response.body === 'string' || response.body.features.length === 0){
+            callback('location not found',undefined)
         }else {
             const data = {
                 latitude: response.body.features[0].center[1] ,
