@@ -42,8 +42,12 @@ app.get('/about',(req,res)=>{
 })
 
 app.get('/weather',(req,res)=>{
-    if(!req.query.address){
+    const address = req.query.address
+    if(!address){
         return res.send({error : "error: enter an address"})
+    }
+    else if (!((address[0] >= '0' && address[0] <= '9') || (address[0] >= 'a' && address[0] <= 'z') || (address[0] >= 'A' && address[0] <= 'Z'))){
+        return res.send({error : "error: enter a valid address"})
     }
     geocode(req.query.address,(error , geodata)=>{
         if(error){
