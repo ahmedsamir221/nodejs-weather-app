@@ -49,7 +49,7 @@ app.get('/weather',(req,res)=>{
         if(error){
               return res.send({error})
         }
-        forcast(geodata.latitude, geodata.longitude , (error, weatherdata)=>{
+        forcast(geodata.latitude, geodata.longitude , (error, weatherdata) => {
               if(error){
                   return res.send({error})
               }
@@ -64,20 +64,11 @@ app.get('/weather',(req,res)=>{
 })
 
 
-app.get('/help/*',(req,res)=>{
-    res.render('404',{
-        title : 'about',
-        name : 'aboutpage',
-        error: 'help not found'
-        
-    })
-})
-
 
 app.get('*',(req,res)=>{
     res.render('404',{
-        title : 'about',
-        name : 'aboutpage',
+        title : 'error',
+        name : 'aboerror page',
         error: 'page not found'
         
     })
